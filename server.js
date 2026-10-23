@@ -230,8 +230,6 @@ app.get("/api/custom-live/:stationId", async (req, res) => {
   try {
     const token = await getAuthToken();
     const stationId = req.params.stationId;
-
-    // 💡 FIXED: Changed double question mark "??weather_id" to a single crisp "?"
     const url = `${FAST_API_URL}/v1/weather-data?weather_id=weather-001&weather_id=weather-002&from_time=now-7d&to_time=now`;
     const response = await fetch(url, {
       headers: { Authorization: `Bearer ${token}` },
@@ -241,7 +239,7 @@ app.get("/api/custom-live/:stationId", async (req, res) => {
     // Ensure safe array navigation loops fallback smoothly
     const observations = Array.isArray(data) ? data : [];
 
-    // 💡 FIXED: Chronological JavaScript ascending sort block comparison evaluation math
+    // Chronological JavaScript ascending sort block comparison evaluation math
     const stationData = observations
       .filter(
         (obs) =>
