@@ -10,7 +10,7 @@ const map = new mapboxgl.Map({
 
 let treeMarkers = [];
 let dwdMarkers = [];
-let customMarkers = []; // 💡 NEW: Trackers for your proprietary station markers
+let customMarkers = []; // Trackers for proprietary station markers
 let activeTree = null; // Tracks selected tree for reactive interpolation
 
 // --- 1. RADIUS SLIDER UI ---
@@ -28,7 +28,7 @@ slider.addEventListener("change", () => {
 // --- 2. LOCALIZED LAYER UPDATE ---
 async function updateMapLayers() {
   const radius = slider.value;
-  console.log(`🔍 Refreshing local layers for ${radius / 1000}km...`);
+  console.log(`Refreshing local layers for ${radius / 1000}km...`);
 
   try {
     const response = await fetch(
@@ -40,13 +40,13 @@ async function updateMapLayers() {
     dwdMarkers.forEach((m) => m.remove());
     dwdMarkers = [];
 
-    // 💡 NEW: Clear old custom proprietary markers
+    // Clear old custom proprietary markers
     customMarkers.forEach((m) => m.remove());
     customMarkers = [];
 
     const bounds = new mapboxgl.LngLatBounds();
 
-    // --- RENDER DWD SYNOP STATIONS (Unchanged Logic) ---
+    // --- RENDER DWD SYNOP STATIONS ---
     data.stations.features.forEach((station) => {
       const sId = station.properties.source_id;
       const sName = station.properties.name;
@@ -65,7 +65,7 @@ async function updateMapLayers() {
       });
     });
 
-    // 💡 NEW: RENDER CUSTOM PROPRIETARY WEATHER STATIONS ---
+    // RENDER CUSTOM PROPRIETARY WEATHER STATIONS ---
     if (data.customStations && data.customStations.features) {
       data.customStations.features.forEach((station) => {
         const sId = station.properties.station_id;
@@ -102,12 +102,12 @@ async function updateMapLayers() {
       fetchTreeDetails(activeTree.id, activeTree.coords);
     }
   } catch (err) {
-    console.error("❌ Layer Update Error:", err);
+    console.error("Layer Update Error:", err);
   }
 }
 
 map.on("load", async () => {
-  console.log("🌐 Initializing Local Map...");
+  console.log("Initializing Local Map...");
   updateMapLayers();
 
   try {
@@ -139,7 +139,7 @@ map.on("load", async () => {
       dwdMarkers.forEach((m) => (e.target.checked ? m.addTo(map) : m.remove()));
     });
 
-    // 💡 NEW: Handle toggle changes for internal proprietary hardware switches
+    // 💡 Handle toggle changes for internal proprietary hardware switches
     document.getElementById("custom-toggle").addEventListener("change", (e) => {
       customMarkers.forEach((m) =>
         e.target.checked ? m.addTo(map) : m.remove(),
@@ -195,7 +195,7 @@ async function fetchDWDLive(sourceId, coords, name) {
   }
 }
 
-// 💡 NEW HELPER: PROPRIETARY EQUIPMENT REAL-TIME TELEMETRY POPUP ---
+// 💡 PROPRIETARY EQUIPMENT REAL-TIME TELEMETRY POPUP ---
 async function fetchCustomStationLive(stationId, coords, name) {
   const popup = new mapboxgl.Popup({ offset: 25, closeOnClick: true })
     .setLngLat(coords)
