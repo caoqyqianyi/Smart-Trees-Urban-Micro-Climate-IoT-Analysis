@@ -139,7 +139,7 @@ map.on("load", async () => {
       dwdMarkers.forEach((m) => (e.target.checked ? m.addTo(map) : m.remove()));
     });
 
-    // 💡 Handle toggle changes for internal proprietary hardware switches
+    // Handle toggle changes for internal proprietary hardware switches
     document.getElementById("custom-toggle").addEventListener("change", (e) => {
       customMarkers.forEach((m) =>
         e.target.checked ? m.addTo(map) : m.remove(),
@@ -195,7 +195,7 @@ async function fetchDWDLive(sourceId, coords, name) {
   }
 }
 
-// 💡 PROPRIETARY EQUIPMENT REAL-TIME TELEMETRY POPUP ---
+// PROPRIETARY EQUIPMENT REAL-TIME TELEMETRY POPUP ---
 async function fetchCustomStationLive(stationId, coords, name) {
   const popup = new mapboxgl.Popup({ offset: 25, closeOnClick: true })
     .setLngLat(coords)
