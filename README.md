@@ -7,7 +7,7 @@
 
 An open-source Smart City platform that turns urban trees into **living climate indicators**. Environmental sensors mounted on stationary and mobile trees stream measurements over LoRaWAN; a Node.js middleware aggregates these with official weather-station data and satellite imagery, and an interactive WebGL map quantifies the local **microclimate temperature delta** — the cooling or warming effect of each tree relative to a distance-weighted regional baseline.
 
-Developed for the **Smart Trees (Smarte Bäume)** project by [C20 – Institut für transformative Utopie e.V.](https://www.c-20.de) in cooperation with KielRegion *SmarterLeben*, part of the German federal *Modellprojekte Smart Cities* programme.
+Developed for the **[Smart Trees](https://smart-trees.de/)** project in cooperation with KielRegion *SmarterLeben*, part of the German federal **[Modellprojekte Smart Cities](https://www.smart-city-dialog.de/en)** programme.
 
 ---
 
