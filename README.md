@@ -37,10 +37,11 @@ Urban trees cool their surroundings through shade and transpiration, but this se
 2. **Regional weather data** from the German Weather Service (DWD) and an internal station mesh,
 3. **Satellite remote sensing** (land surface temperature, soil moisture, land cover, climate zones) via Google Earth Engine.
 
+<img src="figures/Smart_Trees.png" alt="The Smart Trees dashboard presenting the IoT sensor data" width="800">
+
 The map compares the temperature at a tree against a regional baseline built with **Inverse Distance Weighting (IDW)** and renders the result with a divergent red/cyan color scale.
 
-<img src="figures/Smart_Trees_Dashboard2.png" alt="*Spatial Data Layers extracted from Google Earth Engine open source" width="800">
-
+<img src="figures/Smart_Trees_Dashboard_2.png" alt="The Webpage of Smart Trees data comparison based on IDW" width="800">
 
 ## Features
 
