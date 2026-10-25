@@ -37,10 +37,12 @@ Urban trees cool their surroundings through shade and transpiration, but this se
 2. **Regional weather data** from the German Weather Service (DWD) and an internal station mesh,
 3. **Satellite remote sensing** (land surface temperature, soil moisture, land cover, climate zones) via Google Earth Engine.
 
+***The Smart Trees dashboard presenting the IoT sensor data***
 <img src="figures/Smart_Trees.png" alt="The Smart Trees dashboard presenting the IoT sensor data" width="800">
 
 The map compares the temperature at a tree against a regional baseline built with **Inverse Distance Weighting (IDW)** and renders the result with a divergent red/cyan color scale.
 
+***The Webpage of IoT trees data and Weather station comparison based on IDW***
 <img src="figures/Smart_Trees_Dashboard_2.png" alt="The Webpage of Smart Trees data comparison based on IDW" width="800">
 
 ## Features
@@ -89,12 +91,13 @@ smart-trees/
 ├── frontend/
 │   ├── index.html         # Layout, sidebar, layer toggles, radius slider
 │   ├── map.js             # Mapbox map, markers, popups, delta rendering
-│   └── *.svg              # Custom tree / station markers
+│   └── *.svg              # Custom tree/station markers
 └── earth-engine/
-    ├── climate-zone.js    # Köppen-Geiger (Cfb) for Kiel
+    ├── Land-Cover.js      # Land cover categories for Kiel
     ├── soil-moisture.js   # SMAP enhanced soil moisture
     └── temperature.js     # MODIS land surface temperature
 ```
+The Google Earth Engine scripts are not public, but are listed here for better project structure understanding.
 
 ## Getting Started
 
@@ -214,9 +217,14 @@ delta = tree_sensor_temperature − IDW_baseline
 
 The `earth-engine/` folder contains reproducible scripts clipped to the Kiel boundary (derived from an open German postal-code dataset):
 
-- **Köppen climate zone** — confirms Kiel is a single temperate oceanic class (`Cfb`); exported as GeoJSON/shapefile.
+- **Kiel Landcover** — Land cover categories for Kiel; exported as GeoJSON/shapefile.
 - **SMAP soil moisture** — `NASA/SMAP/SPL3SMP_E`, ~9 km grid, morning/evening passes.
 - **MODIS land surface temperature** — `MODIS/061/MOD11A1`, 1 km daily, with scale factor `0.02` and Kelvin→°C conversion.
+
+***The Land Cover of Kiel Region***
+
+<img src="figures/CityKiel_LandCover.png" alt="The Land cover of Kiel region" width="800">
+
 
 ## Future Work
 
