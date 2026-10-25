@@ -223,7 +223,7 @@ The `earth-engine/` folder contains reproducible scripts clipped to the Kiel bou
 
 ***The Land Cover of Kiel Region***
 
-<img src="figures/CityKiel_LandCover.png" alt="The Land cover of Kiel region" width="800">
+<img src="figures/CityKiel_LandCover.png" alt="The Land cover of Kiel region" height="600">
 
 
 ## Future Work
