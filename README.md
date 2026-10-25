@@ -39,6 +39,9 @@ Urban trees cool their surroundings through shade and transpiration, but this se
 
 The map compares the temperature at a tree against a regional baseline built with **Inverse Distance Weighting (IDW)** and renders the result with a divergent red/cyan color scale.
 
+<img src="figures/Smart_Trees_Dashboard2.png" alt="*Spatial Data Layers extracted from Google Earth Engine open source" width="800">
+
+
 ## Features
 
 - **Multi-source data integration** — LoRaWAN tree telemetry, DWD synoptic stations, internal proprietary weather stations, and satellite layers, aggregated through a single middleware.
